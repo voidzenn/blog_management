@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  dev-db:
+    image: mysql:8.0
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: dev_db
+
+  test-db:
+    image: mysql:8.0
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: test_db
