@@ -54,6 +54,6 @@ test:
 #
 production:
   <<: *default
-  database: turbo_app_example_production
-  username: turbo_app_example
-  password: <%= ENV["TURBO_APP_EXAMPLE_DATABASE_PASSWORD"] %>
+  database: app_example_production
+  username: app_example
+  password: <%= ENV["APP_EXAMPLE_DATABASE_PASSWORD"] %>
