@@ -1,13 +1,13 @@
+default: &default
+  DB_HOST: '127.0.0.1'
+  DB_PORT: '3307'
+  DB_USERNAME: 'root'
+  DB_PASSWORD: 'root'
+
 development:
-  DB_HOST: "127.0.0.1"
-  DB_PORT: "3307"
-  DB_USERNAME: "user"
-  DB_PASSWORD: "password"
-  DB_NAME: "dev_db"
+  <<: *default
+  DB_NAME: 'dev_db'
 
 test:
-  DB_HOST: "127.0.0.1"
-  DB_PORT: "3308"
-  DB_USERNAME: "user"
-  DB_PASSWORD: "password"
-  DB_NAME: "test_db"
+  <<: *default
+  DB_NAME: 'test_db'
