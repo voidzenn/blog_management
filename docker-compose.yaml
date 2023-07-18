@@ -7,6 +7,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - 'rails_boilerplate_app:/var/lib/mysql'
+      - 'active_admin_sample:/var/lib/mysql'
 volumes:
-  rails_boilerplate_app:
+  active_admin_sample:
