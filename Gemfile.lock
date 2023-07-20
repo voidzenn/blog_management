@@ -296,11 +296,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activeadmin
+  activeadmin (~> 3.0.0)
   bootsnap
   capybara
   debug
-  devise
+  devise (~> 4.9.2)
   figaro
   importmap-rails
   jbuilder
@@ -309,7 +309,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
   rspec-rails
-  sassc
+  sassc (~> 2.4.0)
   selenium-webdriver
   shoulda
   sprockets-rails
