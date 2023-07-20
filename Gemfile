@@ -17,6 +17,7 @@ gem "figaro"
 gem "activeadmin", "~> 3.0.0"
 gem "devise", "~> 4.9.2"
 gem "sassc", "~> 2.4.0"
+gem "activeadmin_quill_editor", "~> 0.2.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
