@@ -5,7 +5,7 @@ ActiveAdmin.register Post do
     f.inputs do
       f.input :author_id, as: :select, collection: AdminUser.pluck(:name, :id)
       f.input :title
-      f.input :content
+      f.input :content, as: :quill_editor
     end
     f.actions
   end
