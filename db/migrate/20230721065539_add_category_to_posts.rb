@@ -1,9 +1,9 @@
 class AddCategoryToPosts < ActiveRecord::Migration[7.0]
   def up
-    add_column :posts, :category, :integer, foreign_key: true, after: :title
+    add_reference :posts, :category, foreign_key: true, after: :title
   end
 
   def down
-    remove_column :posts, :category, :integer, foreign_key: true, after: :title
+    remove_reference :posts, :category, foreign_key: true, after: :title
   end
 end

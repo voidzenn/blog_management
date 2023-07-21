@@ -47,13 +47,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_065539) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "author_id"
     t.string "title"
-    t.integer "category"
+    t.bigint "category_id"
     t.text "content", size: :long
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
   end
 
   add_foreign_key "posts", "admin_users", column: "author_id"
+  add_foreign_key "posts", "categories"
 end
