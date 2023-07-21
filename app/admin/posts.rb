@@ -13,8 +13,10 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs do
-      f.input :author_id, as: :select, collection: AdminUser.pluck(:name, :id)
-      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+      f.input :author_id, as: :select, collection: AdminUser.pluck(:name, :id),
+              selected: current_admin_user.id, include_blank:false
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id),
+              selected: Category.first.id, include_blank: false
       f.input :title
       f.input :content, as: :quill_editor, input_html: {
         data: {
