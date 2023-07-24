@@ -1,0 +1,19 @@
+<div class="flex px-10 py-5 bg-blue-500">
+  <div class="flex flex-row space-x-4 w-full items-center justify-center mx-auto">
+    <div class="header-home text-white text-2xl px-5">Home</div>
+    <div class="dropdown">
+      <div class="inline-flex space-x-4 text-white py-2 px-4 items-center">
+        <span class="header-categories text-white text-2xl mr-1 hover:cursor-pointer">Categories</span>
+        <svg class="arrow-down fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+      </div>
+      <ul class="dropdown-menu absolute hidden text-lg">
+        <% category_list.each do |category| %>
+          <li class="px-8 py-2 hover:bg-blue-200">
+            <%= link_to category.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  </div>
+</div>
