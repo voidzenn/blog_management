@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
-  belongs_to :category, foreign_key: true
+  belongs_to :category
 
   validates :title, presence: true
   validates :content, presence: true

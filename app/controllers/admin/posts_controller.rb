@@ -1,12 +1,6 @@
 module Admin
   class PostsController < ActiveAdmin::ResourceController
-    before_action :set_collections, only: %i(new)
-
-    def new
-      @post = Post.new
-    end
-
-    private
+    before_action :set_collections, only: %i(new edit)
 
     def set_collections
       authors_collection
@@ -16,11 +10,11 @@ module Admin
     end
 
     def authors_collection
-      @authors_collection = AdminUser.pluck :name, :id
+      @authors_collection ||= AdminUser.pluck(:name, :id)
     end
 
     def categories_collection
-      @categories_collection = Category.pluck :name, :id
+      @categories_collection ||= Category.pluck(:name, :id)
     end
   end
 end
