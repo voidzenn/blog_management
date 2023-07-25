@@ -1,0 +1,13 @@
+.quill-content {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.quill-content strong {
+  line-height: 3;
+}
+
+.quill-content .post-content:hover {
+  cursor: pointer;
+  background-color: #eaeaff;
+}
