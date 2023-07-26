@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.where(status: :published)
     render '/home'
   end
 end
