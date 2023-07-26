@@ -36,7 +36,14 @@ ActiveAdmin.register Post do
         }
       }
     end
-    f.actions
-  end
 
+    f.actions do
+      f.action :submit, label: I18n.t("active_admin.posts.forms.actions.publish")
+      f.cancel_link
+      div class: "right-action" do
+        f.action :submit, label: I18n.t("active_admin.posts.forms.actions.save_draft")
+      end
+    end
+
+  end
 end

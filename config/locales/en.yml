@@ -31,6 +31,13 @@
 
 en:
   active_admin:
-    blogs:
-      empty:
-        title: "No exisiting blogs to show, you can create new blogs by clicking Create Blog"
+    posts:
+      forms:
+        actions:
+          save_draft: "Save as draft"
+          publish: "Publish"
+      response:
+        message:
+          success:
+            drafted: "Post saved as draft."
+            published: "Post successfully published."
