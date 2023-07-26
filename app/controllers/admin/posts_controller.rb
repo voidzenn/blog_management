@@ -3,13 +3,11 @@ module Admin
     def create
       @post = Post.new post_params
 
-      if params[:commit] == I18n.t("active_admin.posts.forms.actions.save_draft")
-        save_as_draft
+      if save_as_draft?
+        @post.status = :drafted
+        save_post_with_message "drafted"
       else
-        super do |format|
-          redirect_to_admin_post(resource, notice: I18n.t("active_admin.posts.response.message.success.published"))
-          return
-        end
+        save_post_with_message "published"
       end
     end
 
@@ -19,15 +17,13 @@ module Admin
       params.require(:post).permit(:title, :content, :author_id, :category_id, :status)
     end
 
-    def redirect_to_admin_post resource, notice: ""
-      redirect_to admin_post_path(resource), notice: notice
+    def save_as_draft?
+      params[:commit] == I18n.t("active_admin.posts.forms.actions.save_draft")
     end
 
-    def save_as_draft
-      @post.status = :drafted
-
+    def save_post_with_message status
       if @post.save
-        redirect_to_admin_post(@post, notice: I18n.t("active_admin.posts.response.message.success.drafted"))
+        redirect_to admin_post_path(@post), notice: I18n.t("active_admin.posts.response.message.success.#{status}")
       else
         render :new
       end

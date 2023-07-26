@@ -38,10 +38,10 @@ ActiveAdmin.register Post do
     end
 
     f.actions do
-      f.action :submit, label: I18n.t("active_admin.posts.forms.actions.publish")
+      f.action :submit, label: action_label("publish")
       f.cancel_link
       div class: "right-action" do
-        f.action :submit, label: I18n.t("active_admin.posts.forms.actions.save_draft")
+        f.action :submit, label: action_label("save_draft")
       end
     end
 

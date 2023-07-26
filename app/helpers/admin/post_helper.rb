@@ -14,4 +14,8 @@ module Admin::PostHelper
   def selected_category_id
     @categories_collection&.first&.second
   end
+
+  def action_label type
+    I18n.t("active_admin.posts.forms.actions.#{type}")
+  end
 end
