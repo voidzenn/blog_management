@@ -1,3 +1,3 @@
-module HomeHelper
+module PostsHelper
   include BaseHelper
 end

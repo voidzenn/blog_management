@@ -1,0 +1,8 @@
+<div class="flex flex-wrap mx-10 my-5">
+  <div class="">
+    <p class="text-2xl font-semibold"><%= sanitize_data(@post.title) %></p>
+  </div>
+  <div class="post-content mx-auto mt-5">
+    <p><%= sanitize_data(@post.content) %></p>
+  </div>
+</div>
