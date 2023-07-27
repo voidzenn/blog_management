@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
   belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
   belongs_to :category
 
@@ -17,11 +20,23 @@ class Post < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     ["id", "author_id", "category_id", "title", "content", "created_at", "status", "updated_at"]
+    super + ["slug"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["author", "category"]
   end
 
   private
 
   def set_default_status
     self.status ||= :published
+  end
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :id]
+    ]
   end
 end

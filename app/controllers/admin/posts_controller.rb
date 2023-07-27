@@ -1,5 +1,7 @@
 module Admin
   class PostsController < ActiveAdmin::ResourceController
+    before_action :find_post, only: %i(show edit)
+
     def create
       @post = Post.new post_params
 
@@ -15,6 +17,10 @@ module Admin
 
     def post_params
       params.require(:post).permit(:title, :content, :author_id, :category_id, :status)
+    end
+
+    def find_post
+      @post = Post.friendly.find params[:id]
     end
 
     def save_as_draft?
