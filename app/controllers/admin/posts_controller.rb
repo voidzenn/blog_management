@@ -1,6 +1,6 @@
 module Admin
   class PostsController < ActiveAdmin::ResourceController
-    before_action :find_post, only: %i(show edit)
+    before_action :find_post, only: %i(show edit update)
 
     def create
       @post = Post.new post_params
