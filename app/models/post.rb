@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
   belongs_to :category
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :content, presence: true
   validates :author_id, presence: true
   validates :category_id, presence: true
