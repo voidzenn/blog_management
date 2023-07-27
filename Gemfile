@@ -23,6 +23,8 @@ gem "friendly_id", "~> 5.5.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry-byebug"
+  gem "pry-rails"
 end
 
 group :development do
