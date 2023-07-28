@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'layouts/_header.css';
+ @import 'admin/posts.css';
+ @import './home.css';
