@@ -1,11 +1,15 @@
-.post-content {
+.show-content .return-action {
+  text-decoration: none;
+}
+
+.show-content .post-content {
   font-size: 14px;
 }
 
-.post-content h3 {
+.show-content .post-content h3 {
   margin-bottom: 10px;
 }
 
-.post-content p {
+.show-content .post-content p {
   margin-bottom: 10px;
 }

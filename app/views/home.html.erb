@@ -1,14 +1,27 @@
 <div class="mx-5 my-5">
-  <div class="quill-content flex flex-wrap">
+  <div class="quill-content flex flex-wrap mx-10 my-10 space-x-8">
     <% @posts.each do |post| %>
-      <div class="w-1/3 px-5 py-5"> 
+      <div class="post-card w-1/3" data-post-slug="<%= post.slug %>">
         <%= render "shared/card",
           data: {
             content: "<div class=\"font-semibold\">#{sanitize_data(post.title)}</div><div>#{shortened_safe_content(post.content, length: 450)}</div>".html_safe,
-            class_names: "post-content  px-5 py-5",
+            class_names: "px-5 py-5",
           }
         %>
       </div>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".post-card").click(function () {
+      var postSlug = $(this).data("post-slug");
+
+      if(postSlug) {
+        const location = "<%= posts_path %>" + "/" + postSlug;
+        window.location.href = location
+      }
+    });
+  });
+</script>
