@@ -7,7 +7,7 @@
   line-height: 3;
 }
 
-.quill-content .post-card:hover {
+.quill-content .post-content:hover {
   cursor: pointer;
   background-color: #eaeaff;
 }
