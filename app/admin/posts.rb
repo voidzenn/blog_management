@@ -40,8 +40,11 @@ ActiveAdmin.register Post do
     f.actions do
       f.action :submit, label: action_label("publish")
       f.cancel_link
-      div class: "right-action" do
-        f.action :submit, label: action_label("save_draft")
+
+      if controller.action_name == "new"
+        div class: "right-action" do
+          f.action :submit, label: action_label("save_draft")
+        end
       end
     end
 
