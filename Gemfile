@@ -27,6 +27,9 @@ group :development, :test do
   gem "pry-rails"
   gem "faker"
   gem "factory_bot_rails"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "rails-controller-testing"
 end
 
 group :development do
@@ -37,6 +40,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "rspec-rails", require: false
-  gem "shoulda", require: false
 end
