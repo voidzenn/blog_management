@@ -2,6 +2,9 @@ module Admin
   class PostsController < ActiveAdmin::ResourceController
     before_action :find_post, only: %i(show edit update)
 
+    def show
+    end
+
     def create
       @post = Post.new post_params
 
@@ -11,6 +14,12 @@ module Admin
       else
         save_post_with_message "published"
       end
+    end
+
+    def edit
+    end
+
+    def update
     end
 
     private
