@@ -1,75 +1,7 @@
-<div class="mx-5 my-5">
+<div class="mx-5 my-5" data-controller="home">
   <div class="flex justify-end mr-20 my-5">
-    <select class="select-category text-lg px-3 py-2 bg-transparent border-2 border-blue-500 rounded">
-      <% categories_selection.each_with_index do |category, index| %>
-        <% if index == 0 %>
-          <option value="all">All</option>
-        <% end %>
-        <option value="<%= category.name %>"><%= category.name %></option>
-      <% end %>
-    </select>
+    <input type="search" placeholder="Type here" class="input w-full max-w-xs" data-home-target="input" data-action="keyup->home#search" />
   </div>
-  <div class="quill-content flex flex-wrap mx-10 my-10">
-    <% @posts.each do |post| %>
-      <div class="category-<%= post.category.name.downcase %> post-card w-1/3" data-post-slug="<%= post.slug %>">
-        <div class="h-full px-5 py-5">
-          <%= render "shared/card", data: {
-              content: "<div>Category: #{sanitize_data(post.category.name)}</div><div class=\"font-semibold\">#{sanitize_data(post.title)}</div><div>#{shortened_safe_content(post.content, length: 450)}</div>".html_safe,
-              class_names: "post-content  px-5 py-5",
-            }
-          %>
-        </div>
-      </div>
-    <% end %>
+  <div data-home-target="posts" class="quill-content flex flex-wrap mx-10 my-10">
   </div>
 </div>
-
-<script type="text/javascript">
-  const categories = <%= categories_collection_name %>;
-
-  $(document).ready(function() {
-    $(".select-category").on("change", function() {
-      var categoryName = $(this).val();
-      const categoryAll = "all";
-
-      if(categoryName) {
-        showAllCategoryClass();
-        hideCategoryClass(filterCollection(categories, categoryName));
-      }
-
-      if(categoryName == categoryAll) {
-        showAllCategoryClass();
-      }
-    });
-
-    $(".post-card").click(function () {
-      var postSlug = $(this).data("post-slug");
-
-      if(postSlug) {
-        const location = "<%= posts_path %>" + "/" + postSlug;
-        window.location.href = location
-      }
-    });
-  });
-
-  function filterCollection(array, itemToRemove) {
-    const filtered = array.filter(item => item !== itemToRemove);
-    return filtered;
-  }
-
-  function hideCategoryClass(collection) {
-    collection.forEach(function(name) {
-      $(".category-" + loweredCaseString(name)).hide();
-    })
-  }
-
-  function showAllCategoryClass() {
-    categories.forEach(function(name) {
-      $(".category-" + loweredCaseString(name)).show();
-    })
-  }
-
-  function loweredCaseString(string) {
-    return string.toLowerCase();
-  }
-</script>
