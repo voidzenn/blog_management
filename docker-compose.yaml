@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 services:
   db:
     image: postgres:latest
@@ -8,6 +8,27 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     volumes:
-      - 'active_admin_sample:/var/lib/postgresql/data'
+      - 'volume_1:/var/lib/postgresql/data'
+
+  elasticsearch:
+    build:
+      context: .
+      dockerfile: Dockerfile.elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - volume_2:/usr/share/elasticsearch/data
+    networks:
+      - network_1
+    depends_on:
+      - db
+
 volumes:
-  active_admin_sample:
+  volume_1:
+  volume_2:
+
+networks:
+  network_1:
