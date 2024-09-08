@@ -1,12 +1,13 @@
 version: '3.3'
 services:
   db:
-    image: mysql:8.0
+    image: postgres:latest
     ports:
-      - 3307:3306
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
     volumes:
-      - 'active_admin_sample:/var/lib/mysql'
+      - 'active_admin_sample:/var/lib/postgresql/data'
 volumes:
   active_admin_sample:
