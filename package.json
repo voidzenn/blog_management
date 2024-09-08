@@ -4,6 +4,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@rails/webpacker": "5.4.4",
     "autoprefixer": "^9.8.8",
+    "daisyui": "^4.12.10",
     "jquery": "^3.7.0",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",

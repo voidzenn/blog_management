@@ -2,22 +2,20 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
+    './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
+    './app/inputs/**/*.rb',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/container-queries'),
-  ],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')]
 };
