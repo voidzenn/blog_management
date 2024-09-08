@@ -21,6 +21,8 @@ gem "activeadmin_quill_editor", "~> 0.2.0"
 gem "webpacker", "~> 5.4.4"
 gem "friendly_id", "~> 5.5.0"
 gem "dotenv-rails"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
