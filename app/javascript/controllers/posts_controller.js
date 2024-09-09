@@ -1,32 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "input"]
+  static targets = ["searchposts"]
 
-  connect() {
-    // this.fetchPosts();
-    // console.log("test")
-  }
-
-  search(event) {
-    event.preventDefault();
-
-    const form = this.formTarget
-    form.requestSubmit()
+  search() {
+    this.fetchPosts(this.searchpostsTarget.value);
   }
 
   fetchPosts(query = "") {
-    fetch(`/home/search?query=${query}`, {
+    fetch(`/posts/search?query=${query}`, {
       headers: { accept: 'text/vnd.turbo-stream.html' },
     })
     .then((response) => response.text())
     .then((html) => {
-      console.log(html)
       const turboFrame = document.getElementById('posts')
-
       if (html !== '[]' && turboFrame) {
-        turboFrame.outerHTML = html
+        turboFrame.innerHTML = ""
       }
+      Turbo.renderStreamMessage(html)
     });
   }
 }

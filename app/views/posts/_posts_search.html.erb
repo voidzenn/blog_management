@@ -1,0 +1,3 @@
+<% @posts.each do |post| %>
+  <%= render partial: "shared/card", locals: { data: { content: "<div>#{post.title}</div>".html_safe } } %>
+<% end %>

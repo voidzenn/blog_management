@@ -21,6 +21,8 @@ class Post < ApplicationRecord
 
   before_create :set_default_status
 
+  scope :published, -> { where(status: :published) }
+
   settings do
     mappings dynamic: false do
       indexes :title, type: :text

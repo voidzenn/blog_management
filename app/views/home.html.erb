@@ -1,7 +1,16 @@
-<div class="mx-5 my-5" data-controller="home">
+<!-- <div class="mx-5 my-5" data-controller="home">
   <div class="flex justify-end mr-20 my-5">
     <input type="search" placeholder="Type here" class="input w-full max-w-xs" data-home-target="input" data-action="keyup->home#search" />
   </div>
-  <div data-home-target="posts" class="quill-content flex flex-wrap mx-10 my-10">
-  </div>
+  <%= turbo_frame_tag "posts" do %>
+  <% end %>
+</div>
+-->
+
+<div data-controller="home">
+  <%= turbo_frame_tag "posts_form" do %>
+    <%= form_with id: "postsForm", url: search_path, method: :get, data: { turbo_frame: "posts" } do |form| %>
+      <%= form.text_field :query, placeholder: "Search...", data: { home_target: "searchPosts", action: "keyup->home#search" } %>
+    <% end %>
+  <% end %>
 </div>
