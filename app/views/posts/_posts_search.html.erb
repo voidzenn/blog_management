@@ -1,3 +1,19 @@
-<% @posts.each do |post| %>
-  <%= render partial: "shared/card", locals: { data: { content: "<div>#{post.title}</div>".html_safe } } %>
-<% end %>
+<div data-controller="posts-search bg-white">
+  <% @posts.each do |post| %>
+      <div data-posts-search-target="w-full bg-white m-10 p-10" data-action="click->posts-search#test">
+        <%= render partial: "shared/components/card", locals: { 
+          data: { 
+            content: "<div class='card-body w-full'>
+                      <p class='text-black font-bold'>
+                        #{post.title}
+                      </p>
+                      <p>
+                        #{post.content.split[0..20].join(' ') + "..."}
+                      </p>
+                    </div>".html_safe
+          }
+        }
+        %>
+      </div>
+  <% end %>
+</div>

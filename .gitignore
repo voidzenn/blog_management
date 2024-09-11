@@ -46,3 +46,9 @@ yarn-debug.log*
 
 # Env
 .env
+
+# Packages
+package-lock.json
+
+# Rails schema
+db/schema.rb

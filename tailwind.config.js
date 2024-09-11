@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
   content: [
     './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
@@ -17,5 +15,5 @@ module.exports = {
       square: 'square',
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('daisyui')]
+  plugins: [require('daisyui')],
 };

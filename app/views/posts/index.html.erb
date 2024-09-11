@@ -1,5 +1,7 @@
 <div data-controller="posts">
-  <input class="input border-2 border-blue-100 mx-10 my-10" placeholder="search" data-posts-target="searchposts" data-action="keyup->posts#search">
+  <div class="flex m-10">
+    <input type="text" class="input input-bordered input-accent w-2/6 ml-auto" placeholder="search" data-posts-target="searchposts" data-action="keyup->posts#search">
+  </div>
 
   <%= turbo_frame_tag "posts" do %>
     <%= render partial: "posts/posts_search", locals: { posts: @posts } %>
