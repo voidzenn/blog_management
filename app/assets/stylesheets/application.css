@@ -14,5 +14,9 @@
  *= require_self
  */
 
- @import 'admin/posts.css';
- @import './home.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'admin/posts.css';
+@import './home.css';

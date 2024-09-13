@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+
+  friendly_id :slug_candidates, use: [:slugged, :finders] # :finders is the fix for friendly_id admin_console
 
   belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
   belongs_to :category
@@ -17,6 +20,27 @@ class Post < ApplicationRecord
   }
 
   before_create :set_default_status
+
+  scope :published, -> { where(status: :published) }
+
+  settings do
+    mappings dynamic: false do
+      indexes :title, type: :text
+    end
+  end
+
+  def self.search(query)
+    __elasticsearch__.search(
+      {
+        query: {
+          multi_match: {
+            query: query,
+            fields: [:title]
+          }
+        }
+      }
+    )
+  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["id", "author_id", "category_id", "title", "content", "created_at", "status", "updated_at"]

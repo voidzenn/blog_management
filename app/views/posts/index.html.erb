@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "posts_index" do %>
+  <div data-controller="posts--index">
+    <div class="flex m-10">
+      <input type="text" class="input input-bordered input-accent w-2/6 ml-auto" placeholder="search" data-posts--index-target="searchposts" data-action="keyup->posts--index#search">
+    </div>
+    <div data-controller="posts--content">
+      <%= turbo_frame_tag "posts" do %>
+        <%= render partial: "posts/content", locals: { posts: @posts } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -43,3 +43,12 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Env
+.env
+
+# Packages
+package-lock.json
+
+# Rails schema
+db/schema.rb

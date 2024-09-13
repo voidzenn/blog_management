@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.joins(:category).where(status: :published)
-    render '/home'
+    redirect_to posts_path
   end
 end

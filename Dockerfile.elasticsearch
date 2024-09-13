@@ -1,0 +1,10 @@
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+
+# Copy the entrypoint script
+COPY entrypoint.elasticsearch.sh /entrypoint.elasticsearch.sh
+
+# Make the script executable
+RUN chmod +x /entrypoint.elasticsearch.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.elasticsearch.sh"]
