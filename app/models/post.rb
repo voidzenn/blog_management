@@ -5,8 +5,10 @@ class Post < ApplicationRecord
 
   friendly_id :slug_candidates, use: [:slugged, :finders] # :finders is the fix for friendly_id admin_console
 
-  belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
+  belongs_to :author, class_name: "User", foreign_key: "author_id"
   belongs_to :category
+
+  has_one_attached :cover_image
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
@@ -21,7 +23,10 @@ class Post < ApplicationRecord
 
   before_create :set_default_status
 
-  scope :published, -> { where(status: :published) }
+  scope :published, -> {
+    where(status: :published)
+    .order(created_at: :desc)
+  }
 
   settings do
     mappings dynamic: false do
