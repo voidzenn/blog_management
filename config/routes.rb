@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  resources :posts do
-    get ":id", to: "posts#show", param: :slug
+  resources :posts, param: :slug, only: [:index, :show] do
     collection do
       get "search", to: "posts#search"
     end

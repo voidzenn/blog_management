@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   extend FriendlyId
 
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_candidates, use: [:slugged, :finders] # :finders is the fix for friendly_id admin_console
 
   belongs_to :author, class_name: "AdminUser", foreign_key: "author_id"
   belongs_to :category

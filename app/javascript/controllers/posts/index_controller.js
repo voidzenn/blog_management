@@ -3,6 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["searchposts"]
 
+  connect() {
+  }
+
   search() {
     this.fetchPosts(this.searchpostsTarget.value);
   }
