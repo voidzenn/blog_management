@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def search
     if params[:query].present?
-      @posts = Post.search(params[:query])
+      @posts = Post.search(params[:query], params[:page] || 1, params[:per_page] || 12)
     else
       @posts = published_posts
     end
@@ -33,6 +33,8 @@ class PostsController < ApplicationController
   private
 
   def published_posts
-    @published_posts ||= Post.published
+    @published_posts ||= Post.page(params[:page] || 1).per(params[:per_page] || 12)
+                             .published
+                             .sort_recent
   end
 end

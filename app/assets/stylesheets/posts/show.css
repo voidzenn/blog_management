@@ -1,15 +1,10 @@
-.show-content .return-action {
-  text-decoration: none;
+.post-show-content p {
+  text-align: justify;
 }
 
-.show-content .post-content {
-  font-size: 14px;
-}
-
-.show-content .post-content h3 {
-  margin-bottom: 10px;
-}
-
-.show-content .post-content p {
-  margin-bottom: 10px;
+.post-show-content img {
+  height: 500px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto
 }

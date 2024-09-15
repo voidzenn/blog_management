@@ -1,4 +1,4 @@
-<div class="card bg-base-100 shadow-xl border-2 border-black border-opacity-5 z-20 cursor-pointer">
+<div class="card bg-base-100 shadow-xl border-2 border-black border-opacity-5 z-20 cursor-pointer h-full">
   <figure>
     <% if data[:image].attached? %>
       <%= image_tag(rails_blob_path(data[:image], only_path: true), alt: "cover image", class: "object-cover object-top object-center w-32 h-48") %>

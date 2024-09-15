@@ -25,7 +25,10 @@ class Post < ApplicationRecord
 
   scope :published, -> {
     where(status: :published)
-    .order(created_at: :desc)
+  }
+
+  scope :sort_recent, -> {
+    order(created_at: :desc)
   }
 
   settings do
@@ -34,17 +37,19 @@ class Post < ApplicationRecord
     end
   end
 
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            fields: [:title]
-          }
+  def self.search(query, page = 1, per_page = 10)
+    search_params = {
+      query: {
+        multi_match: {
+          query: query,
+          fields: [:title]
         }
-      }
-    )
+      },
+      from: (page - 1) * per_page,
+      size: per_page
+    }
+
+    __elasticsearch__.search(search_params)
   end
 
   def self.ransackable_attributes(auth_object = nil)

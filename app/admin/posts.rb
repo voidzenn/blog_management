@@ -31,6 +31,7 @@ ActiveAdmin.register Post do
                   [{"header": [1, 2, 3, 4, false]}],
                   ["bold", "italic", "underline"],
                   ['blockquote', 'code-block'],
+                  [{ 'align': [] }],
                   ["link", "image"],
                 ]
               },
