@@ -26,6 +26,16 @@ services:
     depends_on:
       - db
 
+  redis:
+    image: redis:7.2
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - volume_1:/data
+    networks:
+      - network_1
+
 volumes:
   volume_1:
   volume_2:
