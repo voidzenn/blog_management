@@ -1,0 +1,21 @@
+<% card_count.times do %>
+  <div
+    class="w-1/4 py-3 px-4 mb-6 h-"
+  >
+    <%= render partial: "shared/components/card", locals: {
+      data: {
+        image: nil,
+        card_body: "<div class='card-body w-full py-8'>
+                      <div class='animate-pulse flex flex-col gap-4'>
+                        <div class='bg-gray-300 rounded h-48 w-full'></div>
+                        <div class='bg-gray-300 rounded h-4 w-28'></div>
+                        <div class='bg-gray-300 rounded h-4 w-full'></div>
+                        <div class='bg-gray-300 rounded h-4 w-full'></div>
+                        <div class='bg-gray-300 rounded h-4 w-full'></div>
+                      </div>
+                    </div>".html_safe
+      }
+    }
+    %>
+  </div>
+<% end %>

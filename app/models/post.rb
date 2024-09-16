@@ -34,6 +34,8 @@ class Post < ApplicationRecord
   settings do
     mappings dynamic: false do
       indexes :title, type: :text
+      indexes :content, type: :text
+      indexes :cover_image, type: :keyword
     end
   end
 

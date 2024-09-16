@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def search
     if params[:query].present?
       @posts = Post.search(params[:query], params[:page] || 1, params[:per_page] || 12)
+                   .records
     else
       @posts = published_posts
     end
@@ -26,6 +27,14 @@ class PostsController < ApplicationController
       format.html { render :index }
       format.turbo_stream do
         render turbo_stream: turbo_stream.append("posts", partial: "posts/content", locals: { posts: @posts })
+      end
+    end
+  end
+
+  def card_load
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.append("post_cards", partial: "posts/card_content_loading", locals: { card_count: 12 })
       end
     end
   end

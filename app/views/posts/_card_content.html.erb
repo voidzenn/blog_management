@@ -1,0 +1,21 @@
+<div
+  data-posts--content-target="postClick"
+  data-slug="<%= post.slug %>"
+  data-action="click->posts--content#handle_click"
+  class="w-1/4 py-3 px-4 mb-6"
+>
+  <%= render partial: "shared/components/card", locals: {
+    data: {
+      image: post.cover_image,
+      card_body: "<div class='card-body w-full py-8'>
+                    <p class='text-black font-bold mb-2'>
+                      #{post.title}
+                    </p>
+                    <p class='text-justify'>
+                      #{post.content.split[0..20].join(' ') + "..."}
+                    </p>
+                  </div>".html_safe
+    }
+  }
+  %>
+</div>
