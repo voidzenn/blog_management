@@ -15,12 +15,38 @@ ActiveAdmin.register Post do
     actions
   end
 
+  show do
+    attributes_table do
+      row :author
+      row :category
+      row :cover_image do |post|
+        image_tag(url_for(post.cover_image), size: "400x200") if post.cover_image.attached?
+      end
+      row :title
+      row :content do |post|
+        raw post.content
+      end
+      row :created_at
+      row :updated_at
+    end
+  end
+
   form do |f|
     f.inputs do
       f.input :author_id, as: :select, collection: User.all.map{ |user| ["#{user.first_name} #{user.last_name}", user.id] }, include_blank:false
       f.input :category_id, as: :select, collection: categories_collection,
               selected: selected_category_id, include_blank: false
       f.input :cover_image, as: :file
+      if f.object.cover_image.attached?
+        li do
+          span do
+            label "‎" # Hidden character to fix cover image margin
+          end
+          span do
+            image_tag(url_for(post.cover_image), size: "400x200") if post.cover_image.attached?
+          end
+        end
+      end
       f.input :title
       f.input :content, as: :quill_editor, input_html: {
         data: {
