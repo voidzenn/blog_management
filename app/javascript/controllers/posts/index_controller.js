@@ -20,19 +20,26 @@ export default class extends Controller {
     const scrollY = document.documentElement.clientHeight
     const docHeight = document.documentElement.scrollHeight
 
+    this.isLoadingCard = false
 
-    if (scrollTop + scrollY >= docHeight) {
-      this.appendLoadingCard()
+    if ((scrollTop + scrollY >= docHeight) && !this.isLoadingCard) {
+      this.fetchNextPosts()
     }
   }
 
-  appendLoadingCard() {
-    fetch(`/posts/card_load`, {
-      headers: { accept: 'text/vnd.turbo-stream.html' }
+
+  fetchNextPosts() {
+    const postsElement = document.querySelectorAll('#posts > .flex');
+    const postsContentCount = postsElement ? postsElement.length + 1 : 0
+
+    fetch(`/posts?page=${postsContentCount}`, {
+      headers: { accepts: 'text/vnd.turbo-stream.html' }
     })
     .then((response) => response.text())
     .then((html) => {
       Turbo.renderStreamMessage(html)
+
+      this.isLoadingCard = false
     })
   }
 

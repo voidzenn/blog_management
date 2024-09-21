@@ -6,7 +6,7 @@
 >
   <%= render partial: "shared/components/card", locals: {
     data: {
-      image: post.cover_image,
+      image: post.cover_image.attached? ? post.cover_image : nil,
       card_body: "<div class='card-body w-full py-8'>
                     <p class='text-black font-bold mb-2'>
                       #{post.title}

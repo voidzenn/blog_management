@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :posts, param: :slug, only: [:index, :show] do
     collection do
       get "search", to: "posts#search"
-      get "card_load", to: "posts#card_load"
     end
   end
 end

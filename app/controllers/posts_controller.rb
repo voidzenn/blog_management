@@ -2,6 +2,16 @@ class PostsController < ApplicationController
   def index
     @posts = published_posts
 
+    if params[:page].present?
+      @post_card_id = params[:page].to_i
+
+      return respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.after("post_card_#{params[:page].to_i - 1}", partial: "posts/content")
+        end
+      end
+    end
+
     respond_to do |format|
       format.html { render :index }
     end
@@ -26,15 +36,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { render :index }
       format.turbo_stream do
-        render turbo_stream: turbo_stream.append("posts", partial: "posts/content", locals: { posts: @posts })
-      end
-    end
-  end
-
-  def card_load
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.append("post_cards", partial: "posts/card_content_loading", locals: { card_count: 12 })
+        render turbo_stream: turbo_stream.update("posts", partial: "posts/content")
       end
     end
   end

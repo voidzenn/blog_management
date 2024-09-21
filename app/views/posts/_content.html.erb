@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "post_cards", class: "flex flex-wrap" do%>
+<%= turbo_frame_tag "post_card_#{@post_card_id || 1}", class: "flex flex-wrap" do%>
   <% @posts && @posts.each do |post| %>
     <%= render partial: 'posts/card_content', locals: { post: post } %>
   <% end %>
