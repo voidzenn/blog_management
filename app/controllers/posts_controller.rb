@@ -2,6 +2,16 @@ class PostsController < ApplicationController
   def index
     @posts = published_posts
 
+    if params[:page].present?
+      @post_card_id = params[:page].to_i
+
+      return respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.after("post_card_#{params[:page].to_i - 1}", partial: "posts/content")
+        end
+      end
+    end
+
     respond_to do |format|
       format.html { render :index }
     end
@@ -17,7 +27,8 @@ class PostsController < ApplicationController
 
   def search
     if params[:query].present?
-      @posts = Post.search(params[:query])
+      @posts = Post.search(params[:query], params[:page] || 1, params[:per_page] || 12)
+                   .records
     else
       @posts = published_posts
     end
@@ -25,7 +36,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { render :index }
       format.turbo_stream do
-        render turbo_stream: turbo_stream.append("posts", partial: "posts/content", locals: { posts: @posts })
+        render turbo_stream: turbo_stream.update("posts", partial: "posts/content")
       end
     end
   end
@@ -33,6 +44,8 @@ class PostsController < ApplicationController
   private
 
   def published_posts
-    @published_posts ||= Post.published
+    @published_posts ||= Post.page(params[:page] || 1).per(params[:per_page] || 12)
+                             .published
+                             .sort_recent
   end
 end

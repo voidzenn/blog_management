@@ -8,7 +8,7 @@ export default class extends Controller {
     fetch("/posts")
     .then(response => response.text())
     .then(html => {
-      const element = document.getElementById('posts_index')
+      const element = document.getElementById('main-container')
 
       if (html !== '[]' && element) {
         element.innerHTML = html

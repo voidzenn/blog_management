@@ -23,6 +23,7 @@ gem "friendly_id", "~> 5.5.0"
 gem "dotenv-rails"
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
+gem "sidekiq"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

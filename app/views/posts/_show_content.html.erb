@@ -1,5 +1,9 @@
-<div>
+<div class="mt-10">
+  <%= image_tag post.cover_image, class: "w-full object-cover object-center object-center h-80" %>
   <div>
-    <p><%= @post.title %></p>
+    <p class="my-10 text-lg font-bold"><%= @post.title %></p>
+    <div class="post-show-content">
+      <%= @post.content.html_safe %>
+    </div>
   </div>
 </div>
