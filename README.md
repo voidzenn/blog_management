@@ -1,18 +1,26 @@
 ## Simple Blog post management using ActiveAdmin and Quill Editor ( Rich Text Editor )
 
 ### Pre-requisites
+ - rails
+ - docker | docker compose
+ - node | version 16.20.1 should work for this webpacker version
+
+### Run app
  - After pulling repo, run **bundle install**
- - Change the name of "/config/application.yml.example" to **application.yml**
- - You need to install docker, after installing docker, run mysql docker containers using this command **docker compose up -d**
+ - Change the name of ".env.example" to **.env**
+ - Run docker containers using this command **docker compose up -d**
+ - Create the databases **rails db:create**
  - Run migration **rails db:migrate**
  - Install webpacker **rails webpacker:install**
    - **Note**: Enter "n" to skip configuration overwrite
    - If you have issues with webpacker, try using an older version of node, currently working using node v16.20.1
- - Create fake data seed **rake create_fake_data**
-   - This creates categories and posts data
- - Run webpack server **bin/webpack-dev-server**
+ - Create admin console access with **rails db:seed**
+ - Create fake data seed **rails create_fake_data**
+   - This creates posts data
+ - In a separate terminal run webpack server **bin/webpack-dev-server**
  - Run application **rails s**
  - Access localhost **http://127.0.0.1:3000/** or the generated url and port after running **rails s**
+ - Access Admin Console **http://127.0.0.1:3000/admin** with this credentials **admin@example.com** | **password**
 
 ### Preview
 Sign in page
