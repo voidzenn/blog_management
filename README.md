@@ -23,21 +23,17 @@ Post list
 ![Screenshot from 2023-07-31 09-32-15](https://github.com/voidzenn/blog_management/assets/47482620/07094b2f-a4d3-4667-b824-4cdc9290f74a)
 
 
-Create Post ( Can save post as draft to not include in home page list )
-![Screenshot from 2023-07-31 09-33-14](https://github.com/voidzenn/blog_management/assets/47482620/b98e9963-31d8-48db-ab6c-e58a1c8ffa99)
+Create Post ( Can save post as draft to not include in home page list | Add Cover Image | Add Image in content )
+![Screenshot from 2024-09-27 10-29-21](https://github.com/user-attachments/assets/112a65df-d42d-4f98-a258-72ac53ffac42)
 
 
 Edit Post
-![Screenshot from 2023-07-31 09-33-34](https://github.com/voidzenn/blog_management/assets/47482620/041c5db1-c2a0-4ede-8fdd-e50a6bcf94db)
+![Screenshot from 2024-09-27 10-30-25](https://github.com/user-attachments/assets/e4ea6a60-e9d2-4aab-bd1f-5b8eb9577b7d)
 
 
-Home Page ( Jquery )
-![Screenshot from 2023-07-31 09-34-00](https://github.com/voidzenn/blog_management/assets/47482620/c4341354-034b-451d-b27d-c3e27ff45291)
+Home Page ( Stimulus with Turbo Stream loading )
+![Peek 2024-09-27 10-49](https://github.com/user-attachments/assets/4bf599de-8941-4cdf-b9ba-cad902e99f44)
 
 
-Filtered Category
-![Screenshot from 2023-07-31 09-34-15](https://github.com/voidzenn/blog_management/assets/47482620/f3b84a9a-1c2f-4d1b-ab7c-c4f82f3a8508)
-
-
-Post Title as slug using **friendly_id** gem
-![Screenshot from 2023-07-31 09-51-30](https://github.com/voidzenn/blog_management/assets/47482620/d9b30d5c-c436-4494-b04a-434178394857)
+Search and Show Page ( ElasticSearch | Title as slug with **friendly_id** gem )
+![blog management search](https://github.com/user-attachments/assets/c4b5cec3-51c5-46b4-ba7e-b47a38a15500)
