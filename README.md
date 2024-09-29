@@ -38,9 +38,15 @@ Create Post ( Can save post as draft to not include in home page list | Add Cove
 Edit Post
 ![Screenshot from 2024-09-27 10-30-25](https://github.com/user-attachments/assets/e4ea6a60-e9d2-4aab-bd1f-5b8eb9577b7d)
 
+Home Page
+![Screenshot from 2024-09-29 19-39-29](https://github.com/user-attachments/assets/58e74231-82ca-4129-b5c5-1c1b865503d8)
+
 
 Home Page ( Stimulus with Turbo Stream loading )
 ![Peek 2024-09-27 10-49](https://github.com/user-attachments/assets/4bf599de-8941-4cdf-b9ba-cad902e99f44)
+
+Show Page
+![Screenshot from 2024-09-29 19-40-50](https://github.com/user-attachments/assets/c1101abe-4f7c-45b9-8962-96eb1014ac4b)
 
 
 Search and Show Page ( ElasticSearch | Title as slug with **friendly_id** gem )
