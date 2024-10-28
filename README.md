@@ -23,6 +23,11 @@
  - Access Admin Console **http://127.0.0.1:3000/admin** with this credentials **admin@example.com** | **password**
 
 ### Preview
+#### Demo
+
+[Watch video](https://drive.google.com/file/d/1IfLpKxUryaqb3UeKtuNjmyb9f-Ud4rSs/view?usp=sharing)
+
+#### Screenshots
 Sign in page
 ![Screenshot from 2023-07-31 09-31-19](https://github.com/voidzenn/blog_management/assets/47482620/f28eed26-55a5-4594-81b0-2c2ae927f325)
 
@@ -41,13 +46,5 @@ Edit Post
 Home Page
 ![Screenshot from 2024-09-29 19-39-29](https://github.com/user-attachments/assets/58e74231-82ca-4129-b5c5-1c1b865503d8)
 
-
-Home Page ( Stimulus with Turbo Stream loading )
-![Peek 2024-09-27 10-49](https://github.com/user-attachments/assets/4bf599de-8941-4cdf-b9ba-cad902e99f44)
-
 Show Page
 ![Screenshot from 2024-09-29 19-40-50](https://github.com/user-attachments/assets/c1101abe-4f7c-45b9-8962-96eb1014ac4b)
-
-
-Search and Show Page ( ElasticSearch | Title as slug with **friendly_id** gem )
-![blog management search](https://github.com/user-attachments/assets/c4b5cec3-51c5-46b4-ba7e-b47a38a15500)
